@@ -5,26 +5,9 @@ import cherrypy
 
 WEBHOOK_LISTEN = '0.0.0.0'  # На некоторых серверах придется указывать такой же IP, что и выше
 
-
-API_TOKEN = '1248893061:AAEa2Y0aaTLY1EvjIEy61iyvTZrfWT4wpKk'
+import config
 
 bot = telebot.TeleBot(API_TOKEN)
-
-
-# webhook settings
-WEBHOOK_HOST = 'https://74.119.195.14'
-WEBHOOK_PATH = '/webhook/'
-WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
-
-# webserver settings
-WEBAPP_HOST = '74.119.195.14'  # or ip
-WEBAPP_PORT = 8443
-
-WEBHOOK_SSL_CERT = './webhook_cert.pem'  # Путь к сертификату
-WEBHOOK_SSL_PRIV = './webhook_pkey.pem'  # Путь к приватному ключу
-
-WEBHOOK_URL_BASE = "https://%s:%s" % (WEBAPP_HOST, WEBAPP_PORT)
-WEBHOOK_URL_PATH = "/%s/" % ('webhook')
 
 
 # Наш вебхук-сервер
