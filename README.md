@@ -3,9 +3,9 @@
 
 
 1). Generate SSL keys:
-sudo apt-get install openssl
-openssl genrsa -out webhook_pkey.pem 2048
-openssl req -new -x509 -days 3650 -key webhook_pkey.pem -out webhook_cert.pem
+sudo apt-get install openssl	
+openssl genrsa -out webhook_pkey.pem 2048	
+openssl req -new -x509 -days 3650 -key webhook_pkey.pem -out webhook_cert.pem	
 
 2). Before start webhook:
 context = ssl.SSLContext()
