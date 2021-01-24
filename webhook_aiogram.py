@@ -10,7 +10,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.utils.executor import start_webhook
 
-import config
+from config import *
 
 logging.basicConfig(level=logging.INFO)
 
@@ -75,7 +75,7 @@ async def echo(message: types.Message, state: FSMContext):
 
 
 async def on_startup(dp):
-    print('set webhook!')
+    logging.info(f"set webhook - {WEBHOOK_URL_BASE} + {WEBHOOK_URL_PATH}")
     await bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH, certificate=open(WEBHOOK_SSL_CERT, 'r'))
     # insert code here to run it after start
 
@@ -99,6 +99,8 @@ if __name__ == '__main__':
 
     context = ssl.SSLContext()
     context.load_cert_chain(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV)
+
+    logging.info(f"start_webhook: {WEBAPP_HOST}:{WEBAPP_PORT}/{WEBHOOK_PATH}")
 
     start_webhook(
         dispatcher=dp,
