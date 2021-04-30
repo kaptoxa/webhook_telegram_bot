@@ -24,3 +24,7 @@ start_webhook(..., host=WEBAPP_HOST, port=WEBAPP_PORT, ssl_context=context)
 
 
 FIN!
+
+4) Maybe it need to load certificate to telegram server
+
+curl -F "url=https://YOU_MEGA_URL" -F "certificate=@bot.pem" https://api.telegram.org/botYOU_TOKEN/setWebhook
