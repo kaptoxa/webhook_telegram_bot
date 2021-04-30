@@ -100,7 +100,7 @@ if __name__ == '__main__':
     context = ssl.SSLContext()
     context.load_cert_chain(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV)
 
-    logging.info(f"start_webhook: {WEBAPP_HOST}:{WEBAPP_PORT}/{WEBHOOK_PATH}")
+    logging.info(f"start_webhook: {WEBAPP_HOST}:{WEBAPP_PORT}{WEBHOOK_PATH}")
 
     start_webhook(
         dispatcher=dp,
